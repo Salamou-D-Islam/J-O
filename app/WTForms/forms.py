@@ -144,7 +144,7 @@ class OffreUpdateForm(FlaskForm):
     new_prix = DecimalField("Prix de l'offre:", validators=[Optional()])
     new_nbr_place = IntegerField("Nombre de place disponibles:", validators=[Optional()])
 
-    new_submit = SubmitField("Ajouter l'offre")
+    new_submit = SubmitField("Mettre à jours l'offre")
     delete_submit = SubmitField("Supprimer l'offre")
 
 from flask_wtf import FlaskForm

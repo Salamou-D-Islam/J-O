@@ -258,8 +258,8 @@ body {
 
 
 @media (max-width: 991px) {
-    }
-
+    
+}
     .bienvenue {
         margin-top: 100px;
     }
@@ -289,6 +289,83 @@ body {
 
 @media (max-width: 767px) {
    #img-fond, #degrader{
-    height: 1200px;
+    height: 900px;
    } 
+
+ 
+    .bienvenue h1 {
+        font-size: 32px;
+        line-height: 40px;
+        margin: 0 10px;
+    }
+
+    .bienvenue p {
+        font-size: 18px;
+        line-height: 40px;
+        margin: 30px 10px 0 10px;
+    }
+
+    .logo{
+        width: 150px;
+        height: 150px;
+        margin: 30px auto 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .bienvenue {
+        margin-top: 80px;
+    }
+
+    .bienvenue h1 {
+        font-size: 32px;
+        line-height: 40px;
+        margin: 0 10px;
+    }
+
+    .bienvenue p {
+        font-size: 18px;
+        line-height: 40px;
+        margin: 30px 10px 0 10px;
+    }
+
+    .logo{
+        width: 150px;
+        height: 150px;
+        margin: 30px auto 0;
+    }
+
+    .card-epreuves {
+        width: 100%;
+        margin: 400px 0 100px 0;
+    }
+}
+
+@media (max-width: 300px) {
+    .bienvenue {
+        margin-top: 40px;
+    }
+
+    .bienvenue h1 {
+        font-size: 24px;
+        line-height: 40px;
+        margin: 0 10px;
+    }
+
+    .bienvenue p {
+        font-size: 12px;
+        line-height: 40px;
+        margin: 30px 10px 0 10px;
+    }
+
+    .logo{
+        width: 100px;
+        height: 100px;
+        margin: 30px auto 0;
+    }
+
+    .card-epreuves {
+        width: 100%;
+        margin: 400px 0 100px 0;
+    }
 }

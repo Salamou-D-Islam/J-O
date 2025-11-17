@@ -53,6 +53,7 @@
 }
 
 .admin-actions {
+    
     margin-top: 50px;
     margin-bottom: 50px;
     padding: 20px;
@@ -80,4 +81,9 @@
     display: flex;  
 }
 
-
+@media (max-width: 767px) {
+    .btn-group {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

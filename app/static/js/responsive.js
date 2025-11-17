@@ -134,3 +134,4 @@ function responsiveSection() {
 }
 responsiveSection();
 window.addEventListener("resize", responsiveSection);
+
