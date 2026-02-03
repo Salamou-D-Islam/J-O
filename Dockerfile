@@ -20,7 +20,7 @@ RUN pip install --no-cache-dir gunicorn
 COPY . .
 
 # Exposez le port 5000
-EXPOSE 5000
+EXPOSE 8000
 
 # Commande pour démarrer l'application
 CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "main:app"]

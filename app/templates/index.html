@@ -1,47 +1,57 @@
-{% extends "base.html" %}
-
-{% block css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">{% endblock %}
-
-
-{% block title %}Accueil{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block css %}<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/index.css') }}"
+/>{% endblock %} {% block title %}Accueil{% endblock %} {% block content %}
 
 <section class="section">
   <div class="container intro text-center">
-      <div id="img-fond" > <!--image de fond --></div>
-      <div id="degrader"><!--dégrader --></div>
-      <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="image du logo des jeux olympiques" class="logo logo-intro">
+    <div id="img-fond"><!--image de fond --></div>
+    <div id="degrader"><!--dégrader --></div>
+    <img
+      src="{{ url_for('static', filename='images/logo.svg') }}"
+      alt="image du logo des jeux olympiques"
+      class="logo logo-intro"
+    />
 
-      <div class="bienvenue container">
-        <h1>Bienvenue sur la billetterie des Jeux-Olympiques</h1>
-        <p>Merci de vous connecter ou de vous inscrire pour pouvoir acheter des billets.</p>
-     </div>
- </div> 
+    <div class="bienvenue container">
+      <h1>Bienvenue sur la billetterie des Jeux-Olympiques</h1>
+      <p>
+        Merci de vous connecter ou de vous inscrire pour pouvoir acheter des
+        billets.
+      </p>
+    </div>
+  </div>
 </section>
 
-  <section class="section section-card-epreuves">
-      <div class="card text-bg-dark  card-epreuves box-shadow">
-        <img src="{{ url_for('static', filename='images/tedy.jpg') }}" class="card-img img-fluid" alt="Image de teddy riner.">
-        <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center content-epreuves">
-          <h5 class="card-title">Epreuves</h5>
-          <p class="card-text">Visulaisez toutes les épreuves disponibles avec leurs détails </p>
-          <a type="button" class="btn btn-primary btn-lg" href="{{ url_for('main.all_epreuve_front')}}">Voir les épreuves</a>
-        </div>
-      </div>
-  </section>
+<section class="section section-card-epreuves">
+  <div class="card text-bg-dark card-epreuves box-shadow">
+    <img
+      src="{{ url_for('static', filename='images/tedy.jpg') }}"
+      class="card-img img-fluid"
+      alt="Image de teddy riner."
+    />
+    <div
+      class="card-img-overlay d-flex flex-column justify-content-center align-items-center content-epreuves"
+    >
+      <h5 class="card-title">Epreuves</h5>
+      <p class="card-text">
+        Visulaisez toutes les épreuves disponibles avec leurs détails
+      </p>
+      <a
+        type="button"
+        class="btn btn-primary btn-lg"
+        href="{{ url_for('main.all_epreuve_front')}}"
+        >Voir les épreuves</a
+      >
+    </div>
+  </div>
+</section>
 
+<br />
+<section class="section" id="section-card-zone"></section>
 
-  <br>
-  <section class="section"id="section-card-zone"></section>
-
-
-
-{% endblock %}
-
-{% block js %}
+{% endblock %} {% block js %}
 <script src="{{ url_for('static', filename='js/responsive.js') }}"></script>
 <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
 {% endblock %}
-

@@ -1,60 +1,27 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block css %}<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/home.css') }}"
+/>{% endblock %} {% block title %}Epreuves{% endblock %} {% block header %}{%
+endblock %} {% block content %}
 
-{% block css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/epreuves.css') }}">{% endblock %}
+<div style="text-align: center; margin: 40px 0 0px 0">
+  <h1 class="card-title">Epreuves</h1>
+  <p>
+    Découvrez toutes les épreuves des Jeux Olympiques et réservez vos billets
+  </p>
+</div>
 
-
-{% block title %}Epreuves{% endblock %}
-
-{% block header %}{% endblock %}
-{% block content %}
-
-    <br>
-    <h1 class="card-title">Epreuves</h1>
-<!-- 
-    <section class="section-epreuves">
- 
-        {% for epreuve in epreuves %}
-
-        
-            <div class="card card-epreuve" style="width: 29rem;">
-
-                {% if epreuve.image_filename %}
-                <img src="{{ url_for('static', filename='uploads/image/' + epreuve.image_filename) }}"  alt="Image de l'épreuve">
-                {% endif %}
-
-                <div class="card-body">
-                    <h5 class="card-title"><strong>{{ epreuve.nom_epreuve }}</strong></h5> 
-                    <p class="card-text">Date de l'épreuve: ({{ epreuve.date_epreuve.strftime('%d/%m/%Y')}})</p>
-
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                        <a href="{{ url_for('main.epreuve_details_front', nom_epreuve=epreuve.nom_epreuve) }}" class="btn btn-primary">Plus de détails</a>
-                    </div>
-
-                
-                </div>
-            </div>
-            
-            {% endfor %}
-    </section> 
-    
-
-
-     <!-- Spinner de chargement -->
+<!-- Spinner de chargement -->
 <div id="loader" class="text-center my-5">
   <div class="spinner-border text-primary" role="status">
     <span class="visually-hidden">Chargement...</span>
   </div>
 </div>
 
-    <section class="section-epreuves" id="epreuves-card"></section>
+<section class="events">
+  <div class="events-grid" id="epreuves-card"></div>
+</section>
 
-
-
-
-{% endblock %}
-
-
-
-{% block js %}
-    <script src="{{ url_for('static', filename='js/all_epreuves_front.js') }}"></script>
+{% endblock %} {% block js %}
+<script src="{{ url_for('static', filename='js/all_epreuves_front.js') }}"></script>
 {% endblock %}

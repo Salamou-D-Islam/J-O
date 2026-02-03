@@ -8,10 +8,7 @@ from ..routes import roles_required
 from ..WTForms.forms import AdminrechercheForm, CreateuserForm, UpdateroleForm, DeleteuserForm, UpdateinfoForm
 
 
-
 admin_routes = Blueprint('admin', __name__)
-
-
 
 
 @admin_routes.route("/", methods=["GET", "POST"])

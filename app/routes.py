@@ -45,7 +45,8 @@ def roles_required(*roles):
 
 @main_routes.route('/')
 def home():
-    return render_template('index.html')
+    epreuves = Epreuve.query.limit(3).all()
+    return render_template('home.html',epreuves=epreuves)
 
 
 
@@ -138,6 +139,21 @@ def all_epreuve_front():
 @main_routes.route("/api/epreuves")
 def api_epreuves():
     epreuves = Epreuve.query.all()
+    data = [
+        {
+            "id": e.id,
+            "nom_epreuve": e.nom_epreuve,
+            "date_epreuve": e.date_epreuve.strftime('%d/%m/%Y'),
+            "image_filename": e.image_filename or ""
+        }
+        for e in epreuves
+    ]
+    return jsonify(data)
+
+# PAGE HOME SECTION EPREUVES (FETCH)
+@main_routes.route("/api/home_epreuves")
+def api_home_epreuves():
+    epreuves = Epreuve.query.limit(3).all()
     data = [
         {
             "id": e.id,
