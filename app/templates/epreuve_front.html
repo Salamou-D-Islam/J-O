@@ -49,7 +49,7 @@ endblock %} {% block content %}
     "
   >
     {% for offre in epreuve.offres %}
-    <div class="">
+    <div>
       <div class="card mb-4 rounded-3 shadow-sm border-primary events-grid">
         <div class="card-header py-3 text-bg-primary border-primary">
           <h4 class="my-0 fw-normal">{{ offre.type_offre }}</h4>
@@ -71,6 +71,39 @@ endblock %} {% block content %}
     </div>
 
     {% endfor %}
+  </div>
+
+  <div class="info-box">
+    <div class="info-content">
+      <div class="info-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-tag"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0"
+          />
+          <path
+            d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1m0 5.586 7 7L13.586 9l-7-7H2z"
+          />
+        </svg>
+      </div>
+
+      <div class="info-text">
+        <h3>Sécurité et Confidentialité</h3>
+
+        <p class="info-paragraph">
+          <strong>Note importante :</strong>
+          Les paiements sur ce site sont des simulations à des fins de
+          démonstration uniquement. Aucune transaction réelle n'est effectuée et
+          aucune donnée bancaire n'est collectée ou stockée.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 {% endblock %}

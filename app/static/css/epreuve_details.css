@@ -81,6 +81,45 @@
   display: flex;
 }
 
+.info-box {
+  margin-top: 3rem;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.info-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.info-icon {
+  background: #2563eb;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-icon i {
+  font-size: 1.25rem;
+}
+
+.info-text h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-paragraph {
+  color: #374151;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
 @media (max-width: 767px) {
   .btn-group {
     flex-direction: column;
