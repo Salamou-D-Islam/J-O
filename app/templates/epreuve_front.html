@@ -1,60 +1,76 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block css %}<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/epreuve_details.css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/home.css') }}"
+/>{% endblock %} {% block title %}Epreuves - {{ epreuve.nom_epreuve }} {%
+endblock %} {% block content %}
 
-{% block css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/epreuve_details.css') }}">{% endblock %}
+<section class="hero" style="padding: 10px">
+  <div class="hero-bg">
+    {% if epreuve.image_filename %}
+    <img
+      src="{{ url_for('static', filename='uploads/image/' ~ epreuve.image_filename) }}"
+      alt="Image de l'épreuve"
+    />
+    {% else %}
+    <p>Aucune image disponible</p>
+    {% endif %}
 
+    <div class="overlay"></div>
+  </div>
 
-{% block title %}Epreuves - {{ epreuve.nom_epreuve }} {% endblock %}
+  <div class="hero-content">
+    <h1>{{ epreuve.nom_epreuve }}</h1>
+    <p>Date de l'épreuve : {{ epreuve.date_epreuve.strftime('%d/%m/%Y') }}</p>
+    <p style="font-size: 15px">
+      Veuillez vous munir de vos pieces d'identié ainsi que le QR code présent
+      dans le ticket. Notez que le QR code ne peut être scanner qu'une seule
+      fois, donc les personnes qui ont un billet d'une offre duo ou family
+      doivent entrer TOUS en même temps.
+    </p>
+  </div>
+</section>
 
-{% block content %}
+<section class="events" style="display: flex; flex-direction: column">
+  <div style="text-align: center; margin: 0px 0 20px 0">
+    <h2>Offres disponibles :</h2>
+    <p>Sélectionnez l'offre qui correspond à vos besoins</p>
+  </div>
+  <div
+    style="
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    "
+  >
+    {% for offre in epreuve.offres %}
+    <div class="">
+      <div class="card mb-4 rounded-3 shadow-sm border-primary events-grid">
+        <div class="card-header py-3 text-bg-primary border-primary">
+          <h4 class="my-0 fw-normal">{{ offre.type_offre }}</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">{{ offre.prix }} €</h1>
+          <ul class="list-unstyled">
+            <li>Nombre de Personne(s) : {{ offre.nombre_personne }}</li>
+            <li>Nombres de places restantes : {{offre.bi_restant}}</li>
+          </ul>
+          <a
+            href="{{ url_for('paiement.paiement_epreuve', type_offre=offre.type_offre) }}"
+            class="w-100 btn btn-lg btn-primary"
+          >
+            Acheter
+          </a>
+        </div>
+      </div>
+    </div>
 
-<section class="section-epreuves">
- 
-
-        
-            <div class="card card-epreuve" style="width: 60rem;">
-
-                {% if epreuve.image_filename %}
-                    <img src="{{ url_for('static', filename='uploads/image/' ~ epreuve.image_filename) }}" alt="Image de l'épreuve">
-                {% else %}
-                    <p>Aucune image disponible</p>
-                {% endif %}
-                <div class="card-body">
-                    <h3 class="card-title">{{ epreuve.nom_epreuve }}</h3> 
-                    <p class="card-text">Date de l'épreuve : {{ epreuve.date_epreuve.strftime('%d/%m/%Y') }}</p>
-                </div>
-                                    <hr>
-                <div class="card-body jour-epreuve">
-                    <h6 class="card-title">Le jour de l'épreuve</h6>
-                    <p class="card-text">Veuillez vous munir de vos pieces d'identié ainsi que le QR code présent dans le ticket. 
-                    Notez que le QR code ne peut être scanner qu'une seule fois, donc les personnes qui ont un billet d'une offre duo ou family doivent entrer TOUS en même temps.</p>
-                </div>
-            </div>
-            
-    </section>
-
-
-<hr>
-<br>
-
-    <h2 class="offre-title">Offres disponibles :</h2>
-
-    <section class="section-epreuves offres">
-            
-
-            {% for offre in epreuve.offres %}
-
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                                    <h5 class="card-title"> <strong>{{ offre.type_offre }} :</strong> </h5>
-                                    <p  class="card-text">Nombre de Personne(s) : {{ offre.nombre_personne }}</p>
-                                    <p  class="card-text">Prix : {{ offre.prix }} €</p>
-                                    <p  class="card-text">Nombres de place restante : {{offre.bi_restant}}</p>
-
-                            <a href="{{ url_for('paiement.paiement_epreuve', type_offre=offre.type_offre) }}" class="btn btn-outline-primary">
-                                Acheter </a>           
-                
-                    </div>
-                </div>
-            {% endfor %}
-    </section>
+    {% endfor %}
+  </div>
+</section>
 {% endblock %}
