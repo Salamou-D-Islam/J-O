@@ -1,37 +1,30 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block css %}<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/form.css') }}"
+/>{% endblock %} {% block title %}Connexion{% endblock %} {% block content %}
 
-{% block css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">{% endblock %}
+<section class="container" style="min-height: 55vh; margin: 40px auto">
+  <form method="POST" class="form-section">
+    <h1>Connexion</h1>
 
-{% block title %}Connexion{% endblock %}
+    {{ form.hidden_tag() }}
+    <!-- Important pour CSRF -->
+    {{ form.email.label }} {{ form.email(class="form-control") }}
 
-{% block content %}
-<section class="form-section box-shadow">
-        <h1>Connexion</h1>
+    <br />
 
-    <div class="mb-3 form-container">
-        <form method="POST" class="log-form">
-
-            {{ form.hidden_tag() }}  <!-- Important pour CSRF -->
-            {{ form.email.label }}
-            {{ form.email(class="form-control") }}
-
-            <br>
-
-            {{ form.password.label }}
-            {{ form.password(class="form-control") }}
-            <br>
-            {{ form.submit(class="form-control btn btn-primary") }}
-            <br>
-            <br>
-            <a href="{{ url_for('main.register') }}" class="form-control btn btn-outline-warning">Se créer un compte</a>
-        </form>
-    </div>
+    {{ form.password.label }} {{ form.password(class="form-control") }}
+    <br />
+    {{ form.submit(class="form-control btn btn-primary") }}
+    <br />
+    <a
+      href="{{ url_for('main.register') }}"
+      class="form-control btn btn-outline-warning"
+      >Se créer un compte</a
+    >
+  </form>
 </section>
 
-
-{% endblock %}
-
-{% block js %}
+{% endblock %} {% block js %}
 <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 {% endblock %}
-
