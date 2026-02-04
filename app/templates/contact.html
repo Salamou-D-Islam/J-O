@@ -1,42 +1,106 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block css %}<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/form.css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/contact.css') }}"
+/>{% endblock %} {% block title %}Contact{% endblock %} {% block content %}
 
-{% block css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">{% endblock %}
-
-{% block title %}Contact{% endblock %}
-
-{% block content %}
-
-<section class="form-section section-form-add  box-shadow">
-
-    <h1>Contactez-nous</h1>
-
-    <div class="mb-3">
-        <form method="POST">
-            {{ form.hidden_tag() }}
-            {{ form.nom.label }} {{ form.nom(class="form-control") }}
-            <br>
-            {{ form.email.label }} {{ form.email(class="form-control") }}
-            <br>
-            {{ form.message.label }} {{ form.message(class="form-control msg-form") }}
-            <br>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="checkDefault" required>
-                <label class="form-check-label" for="checkDefault">
-                    Les informations recueillies sont nécessaires pour traiter votre message et ne seront pas utilisées à d'autres fins.
-                </label>
-            </div>
-
-            <br>
-            {{ form.submit(class="form-control btn btn-primary") }}
-
-        </form>
+<div class="contact-page">
+  <div class="container">
+    <!-- HEADER -->
+    <div class="contact-header">
+      <h1>Contactez-nous</h1>
+      <p>
+        Une question ? Besoin d'aide ? Notre équipe est là pour vous accompagner
+      </p>
     </div>
 
-</section>
+    <div class="contact-grid">
+      <!-- INFOS -->
+      <div class="contact-infos">
+        <div class="info-card">
+          <div class="info-row">
+            <div class="info-icon">
+              <i class="bi bi-envelope"></i>
+            </div>
+            <div>
+              <h3>Email</h3>
+              <p>islamderrouiche@gmail.com</p>
+            </div>
+          </div>
+        </div>
 
+        <div class="info-card">
+          <div class="info-row">
+            <div class="info-icon">
+              <i class="bi bi-telephone"></i>
+            </div>
+            <div>
+              <h3>Téléphone</h3>
+              <p>+33 7 62 46 70 65</p>
+            </div>
+          </div>
+        </div>
 
-{% endblock %}
+        <div class="info-card">
+          <div class="info-row">
+            <div class="info-icon">
+              <i class="bi bi-geo-alt"></i>
+            </div>
+            <div>
+              <h3>Adresse</h3>
+              <p>
+                Comité d'Organisation<br />
+                Jeux-Olympique<br />
+                75008 Paris, France
+              </p>
+            </div>
+          </div>
+        </div>
 
-{% block js %}
+        <div class="hours-box">
+          <h3>Horaires d'ouverture</h3>
+          <p>Lundi - Vendredi : 9h - 18h</p>
+          <p>Samedi : 10h - 16h</p>
+          <p>Dimanche : Fermé</p>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="contact-form">
+        <div class="form-card">
+          <h2>Envoyez-nous un message</h2>
+          <form method="post">
+            <div class="form-grid">
+              <div>
+                {{ form.hidden_tag() }} {{ form.nom.label }} {{
+                form.nom(placeholder="Jean Dupont") }}
+              </div>
+
+              <div>
+                {{ form.email.label }} {{
+                form.email(placeholder="email@exemple.com") }}
+              </div>
+            </div>
+
+            <div>
+              {{ form.message.label }} {{ form.message(rows="6",
+              placeholder="Décrivez votre demande...") }}
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <i class="bi bi-send"></i>
+              Envoyer le message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %} {% block js %}
 <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 {% endblock %}
